@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Feedmaster — Plataforma para Influencers</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(120deg, #23272F 0%, #1877F2 100%);
+      font-family: 'Inter', Arial, sans-serif;
+      color: #fff;
+      min-height: 100vh;
+      margin: 0;
+      overflow-x: hidden;
+    }
+    header {
+      background: rgba(24, 119, 242, 0.85);
+      box-shadow: 0 4px 24px rgba(24,119,242,0.12);
+      padding: 32px 0 24px 0;
+      border-bottom: 2px solid #FF8A00;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      animation: fadeInDown 1s;
+    }
+    .logo-wrap {
+      width: 72px;
+      height: 72px;
+      background: linear-gradient(135deg, #FF8A00 0%, #1877F2 100%);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 24px rgba(255,138,0,0.13);
+      transition: transform 0.2s;
+    }
+    .logo-wrap:hover {
+      transform: scale(1.08) rotate(-4deg);
+      box-shadow: 0 8px 32px rgba(24,119,242,0.18);
+    }
+    .logo {
+      width: 56px;
+      height: 56px;
+      display: block;
+    }
+    .title {
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: #fff;
+      text-shadow: 0 2px 8px #1877F2;
+    }
+    .slogan {
+      font-size: 1.1rem;
+      color: #f3f3f3;
+      font-weight: 400;
+      margin-top: 4px;
+      letter-spacing: 1px;
+    }
+    main {
+      text-align: center;
+      margin-top: 80px;
+      animation: fadeInUp 1.2s;
+    }
+    .btn-menu {
+      margin: 18px;
+      padding: 18px 40px;
+      font-size: 1.2rem;
+      border-radius: 14px;
+      border: none;
+      cursor: pointer;
+      font-weight: 700;
+      box-shadow: 0 2px 16px rgba(24,119,242,0.13);
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+      outline: none;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .btn-primary {
+      background: linear-gradient(90deg, #1877F2 60%, #23272F 100%);
+      color: #fff;
+    }
+    .btn-accent {
+      background: linear-gradient(90deg, #FF8A00 60%, #1877F2 100%);
+      color: #fff;
+    }
+    .btn-ghost {
+      background: #23272F;
+      color: #FF8A00;
+      border: 2px solid #FF8A00;
+    }
+    .btn-menu:hover {
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 6px 24px rgba(255,138,0,0.18);
+      filter: brightness(1.08);
+    }
+    .info-section {
+      display: none;
+      margin: 48px auto 0 auto;
+      background: rgba(34,39,47,0.92);
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(24,119,242,0.18);
+      padding: 40px 6vw;
+      max-width: 700px;
+      animation: fadeInUp 0.8s;
+    }
+    .info-section h2 {
+      font-size: 2rem;
+      font-weight: 900;
+      color: #FF8A00;
+      margin-bottom: 18px;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 8px #23272F;
+    }
+    .info-section p, .info-section ul {
+      color: #e3e8ef;
+      font-size: 1.15rem;
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+    .chip {
+      display: inline-block;
+      background: linear-gradient(90deg, #1877F2 60%, #FF8A00 100%);
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 12px;
+      font-weight: 700;
+      margin: 8px;
+      font-size: 1rem;
+      box-shadow: 0 2px 8px rgba(24,119,242,0.10);
+      letter-spacing: 1px;
+      animation: fadeInUp 1.2s;
+    }
+    .features {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+    a.btn-accent {
+      font-size: 1.1rem;
+      padding: 14px 32px;
+      border-radius: 12px;
+      font-weight: 700;
+      background: linear-gradient(90deg, #FF8A00 60%, #1877F2 100%);
+      color: #fff !important;
+      box-shadow: 0 2px 8px rgba(255,138,0,0.10);
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      display: inline-block;
+      margin-top: 24px;
+    }
+    a.btn-accent:hover {
+      background: #ffb347;
+      color: #23272F !important;
+    }
+    footer {
+      margin-top: 80px;
+      text-align: center;
+      color: #e3e8ef;
+      font-size: 1rem;
+      padding: 24px 0;
+      background: rgba(34,39,47,0.92);
+      border-top: 2px solid #FF8A00;
+      letter-spacing: 1px;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-40px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo-wrap">
+       <img src="img/Logo Feedmaster com gráfico ascendente.png" alt="">
+      </div>
+      <div>
+        <div class="title">Feedmaster</div>
+        <div class="slogan">Gestão para Influencers e Criadores</div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div style="margin-top:60px;">
+      <button class="btn-menu btn-primary" onclick="showSection('empresa')">Sobre a Empresa</button>
+      <button class="btn-menu btn-accent" onclick="showSection('inicio')">Início</button>
+      <button class="btn-menu btn-ghost" onclick="showSection('contato')">Fale com a gente</button>
+    </div>
+
+    <div id="inicio" class="info-section">
+      <h2>Bem-vindo à Feedmaster</h2>
+      <p>A Feedmaster é a solução completa para influencers e criadores organizarem, profissionalizarem e escalarem seus negócios digitais.</p>
+      <div class="features">
+        <div class="chip">Gestão de Conteúdo</div>
+        <div class="chip">Análises e Relatórios</div>
+        <div class="chip">Monetização</div>
+      </div>
+    </div>
+
+    <div id="empresa" class="info-section">
+      <h2>Sobre a Feedmaster</h2>
+      <p>
+        A Feedmaster é uma plataforma completa de gestão para influencers e criadores de conteúdo. Nosso objetivo é facilitar e profissionalizar o trabalho de quem vive de conteúdo digital, oferecendo ferramentas inteligentes e automáticas para organizar, crescer e monetizar sua presença online.
+      </p>
+      <ul style="text-align:left; display:inline-block;">
+        <li><strong>Gestão de Conteúdo:</strong> Agende, organize e publique posts em múltiplas redes sociais de forma centralizada e prática.</li>
+        <li><strong>Análises e Relatórios:</strong> Acompanhe métricas de engajamento, alcance, crescimento de seguidores e desempenho de cada publicação em tempo real.</li>
+        <li><strong>Monetização:</strong> Receba propostas de marcas, gerencie contratos, pagamentos e visualize seus ganhos em um painel exclusivo.</li>
+        <li><strong>Calendário Inteligente:</strong> Planeje sua produção de conteúdo com alertas, sugestões de temas e datas estratégicas para aumentar seu alcance.</li>
+        <li><strong>Gestão de Parcerias:</strong> Controle todas as campanhas, entregas e resultados de ações com marcas, facilitando o relacionamento comercial.</li>
+        <li><strong>Central de Mensagens:</strong> Responda seguidores e parceiros de todas as redes em um só lugar, com filtros e automações.</li>
+        <li><strong>Banco de Mídia:</strong> Armazene fotos, vídeos e arquivos importantes para acessar e reutilizar facilmente em novos projetos.</li>
+        <li><strong>Equipe e Colaboradores:</strong> Adicione membros da sua equipe, delegue tarefas e acompanhe o progresso de cada atividade.</li>
+        <li><strong>Segurança e Privacidade:</strong> Seus dados protegidos com criptografia e controle total sobre o que é compartilhado.</li>
+        <li><strong>Suporte Especializado:</strong> Atendimento rápido e personalizado para ajudar você a crescer e tirar dúvidas sempre que precisar.</li>
+      </ul>
+      <p>
+        Com a Feedmaster, você foca no que faz de melhor: criar conteúdo. Deixe a gestão, organização e crescimento do seu negócio digital com a gente!
+      </p>
+    </div>
+
+    <div id="contato" class="info-section">
+      <h2>Fale com a gente</h2>
+      <a href="https://wa.me/5531971312290" target="_blank" class="btn-accent">
+        Falar direto no WhatsApp
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <div>© <strong>Feedmaster</strong> — Plataforma para Influencers e Criadores</div>
+  </footer>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.info-section').forEach(sec => sec.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+    }
+    // Mostra a tela inicial ao carregar
+    showSection('inicio');
+  </script>
+</body>
+</html>
